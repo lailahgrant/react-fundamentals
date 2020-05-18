@@ -1,5 +1,11 @@
 ## I am following the [Getting Started with React - An Overview and Walkthrough Tutorial](https://www.taniarascia.com/getting-started-with-react/) by [Tanice Rascia](https://www.taniarascia.com) for more on her  [github](https://github.com/taniarascia)
 
+## The tutorial covers 
+* Installation & Reactjs setup
+* Class components and Simple(function) components
+* Props
+* State
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -70,8 +76,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
 
-### The tutorial covers 
-* Installation & Reactjs setup
-* Class components and Simple(function) components
-* Props
-* State

@@ -5,12 +5,17 @@ import Form from "./Form";
 import TableComponent from "./TableComponent";
 import TableProps from "./TableProps";
 import TableState from "./TableState";
+import TheForm from "./TheForm";
+
 
 class App extends Component {
   //create a state object
-  constructor(props) {
-    super(props);
-    this.state = {
+
+  // constructor(props) {
+  //   super(props);
+    //this.state = {
+      
+      state = {
       //the object will contain properties for everything you want to store in the state
       employees: [
         {
@@ -29,9 +34,12 @@ class App extends Component {
           name: "Kasoga",
           job: "Non technical staff - Lead"
         }
-      ]
+      ],
+
+      //empty state for submitting data
+      theemployees:[],
+
     };
-  }
 
   //since we will be removing an employee from the table,we create a removeEmployee method on the parent App class
   //to retrieve the state, we use the this.state.employees or the ES6 mtd
@@ -49,6 +57,16 @@ class App extends Component {
       })
     });
   };
+
+
+  //submitting data
+  //Last step is to allow us to actually submit that data and update the parent state. We'll create a function called handleSubmit() on App that will update the state by taking the existing this.state.characters and adding the new character parameter, using the ES6 spread operator.
+  handleSubmit = theemployee => {
+    this.setState({
+      theemployees: [...this.state.theemployees, theemployee]
+    })
+  }
+
 
   render() {
     //Props
@@ -74,10 +92,17 @@ class App extends Component {
 
     //state
     const { employees } = this.state;
+    const { theemployees } = this.state;
+
 
     return (
       <div className="container">
-        <Table />
+        
+        <Table editemployeeData={theemployees}          
+         removeEmployee={this.removeEmployee} />
+
+        <TheForm handleSubmit={this.handleSubmit}/>   
+
         <Form />
 
         {/*
@@ -103,6 +128,7 @@ class App extends Component {
           employeeData={employees}
           removeEmployee={this.removeEmployee}
         />
+       
       </div>
     );
   }

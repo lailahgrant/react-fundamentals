@@ -41,6 +41,9 @@ const TableBody = props => {
         <button onClick={() => props.removeEmployee(index) } >
           Delete        
         </button>  
+        <button>
+            Add
+        </button>
       </td>  
     </tr>
     
@@ -58,14 +61,14 @@ const TableBody = props => {
 //In addition, since it turns out that the only components having their own states in our project are App and Form, it would be best practice to transform TableState into a simple component from the class component it currently is.
 const TableState = props => {
   
-  const {employeeData, removeEmployee} =props;
+  const {employeeData, removeEmployee, theemployees} =props;
   
   return(
   
     <table>
     <TableHeader />
             
-     <TableBody employeeData={employeeData} removeEmployee={removeEmployee} />
+     <TableBody employeeData={employeeData} removeEmployee={removeEmployee} editemployeeData={theemployees} />
     </table>
   
   )
