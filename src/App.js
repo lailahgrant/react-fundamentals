@@ -6,6 +6,8 @@ import TableComponent from "./TableComponent";
 import TableProps from "./TableProps";
 import TableState from "./TableState";
 import TheForm from "./TheForm";
+import EditTable from './EditTable';
+import TableCrud from "./TableCrud";
 
 
 class App extends Component {
@@ -17,24 +19,24 @@ class App extends Component {
       
       state = {
       //the object will contain properties for everything you want to store in the state
-      employees: [
-        {
-          name: "Margret",
-          job: "Cook"
-        },
-        {
-          name: "Rita",
-          job: "Cleaner"
-        },
-        {
-          name: "Kalumba",
-          job: "Cook"
-        },
-        {
-          name: "Kasoga",
-          job: "Non technical staff - Lead"
-        }
-      ],
+      // employees: [
+      //   {
+      //     name: "Margret",
+      //     job: "Cook"
+      //   },
+      //   {
+      //     name: "Rita",
+      //     job: "Cleaner"
+      //   },
+      //   {
+      //     name: "Kalumba",
+      //     job: "Cook"
+      //   },
+      //   {
+      //     name: "Kasoga",
+      //     job: "Non technical staff - Lead"
+      //   }
+      // ],
 
       //empty state for submitting data
       theemployees:[],
@@ -61,47 +63,46 @@ class App extends Component {
 
   //submitting data
   //Last step is to allow us to actually submit that data and update the parent state. We'll create a function called handleSubmit() on App that will update the state by taking the existing this.state.characters and adding the new character parameter, using the ES6 spread operator.
-  handleSubmit = theemployee => {
-    this.setState({
-      theemployees: [...this.state.theemployees, theemployee]
-    })
-  }
+  // handleSubmit = theemployee => {
+  //   this.setState({
+  //     theemployees: [...this.state.theemployees, theemployee]
+  //   })
+  // }
 
 
   render() {
     //Props
     //data to an array of objects(like JSON-based API)
-    const characters = [
-      {
-        name: "Juliana",
-        job: "Developer"
-      },
-      {
-        name: "Fanny",
-        job: "Moderator"
-      },
-      {
-        name: "Francis",
-        job: "AI personnel"
-      },
-      {
-        name: "Samula",
-        job: "UI/UX"
-      }
-    ];
+    // const characters = [
+    //   {
+    //     name: "Juliana",
+    //     job: "Developer"
+    //   },
+    //   {
+    //     name: "Fanny",
+    //     job: "Moderator"
+    //   },
+    //   {
+    //     name: "Francis",
+    //     job: "AI personnel"
+    //   },
+    //   {
+    //     name: "Samula",
+    //     job: "UI/UX"
+    //   }
+    // ];
 
     //state
-    const { employees } = this.state;
+    //const { employees } = this.state;
     const { theemployees } = this.state;
 
 
     return (
       <div className="container">
-        
-        <Table editemployeeData={theemployees}          
-         removeEmployee={this.removeEmployee} />
 
-        <TheForm handleSubmit={this.handleSubmit}/>   
+<TableCrud characterData={theemployees}  removeCharacter= {this.removeCharacter}  />
+        
+        <Table  />
 
         <Form />
 
@@ -113,21 +114,25 @@ class App extends Component {
         Now thata data is being passed through the TableProps,we have to work on accessing it from the TableProps's TableBody component        
         */}
 
-        <TableProps characterData={characters} />
+        {/* <TableProps characterData={characters} /> */}
 
         <hr />
 
-        <TableComponent />
+        {/* <TableComponent /> */}
 
         {/*
           State
           now we pass the removeEmployee through the component and render a button next to each employee that can invoke the function
           We will pass the removeEmployee fn through as a prop to TableState
         */}
-        <TableState
+        {/* <TableState
           employeeData={employees}
           removeEmployee={this.removeEmployee}
-        />
+        /> */}
+
+        {/* <EditTable editemployeeData={theemployees}          
+         removeEmployee={this.removeEmployee} /> */}
+        {/* <TheForm handleSubmit={this.handleSubmit}/> */}
        
       </div>
     );

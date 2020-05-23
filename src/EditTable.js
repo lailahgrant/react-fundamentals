@@ -41,9 +41,10 @@ const TableBody = props => {
         <button onClick={() => props.removeEmployee(index) } >
           Delete        
         </button>  
-        <button>
+        <button onClick= {() => props.handleSubmit(index)}>
             Add
         </button>
+        
       </td>  
     </tr>
     
@@ -51,6 +52,8 @@ const TableBody = props => {
     
   })
   
+//   return <tr><button>Add</button></tr>
+
   return <tbody>{rows}</tbody>
   
 }
@@ -59,7 +62,7 @@ const TableBody = props => {
 //Since we're passing it down to TableBody from TableState, we're going to have to pass it through again as a prop, just like we did with the employee data.
 
 //In addition, since it turns out that the only components having their own states in our project are App and Form, it would be best practice to transform TableState into a simple component from the class component it currently is.
-const TableState = props => {
+const EditTable = props => {
   
   const {employeeData, removeEmployee, theemployees} =props;
   
@@ -75,4 +78,4 @@ const TableState = props => {
   
 }
 
-export default TableState;
+export default EditTable;
